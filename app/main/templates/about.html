@@ -1,0 +1,53 @@
+<ion-view view-title="About CubingZA">
+  <!-- do you want padding? -->
+  <ion-content class="padding">
+
+    <!-- content goes here -->
+<!--
+    <div class="card padding">
+      <p>
+        <b>Speedcubing</b> <i>(n)</i> - The activity of solving a variety of twisty puzzles, the most famous being the Rubik's Cube, as quickly as possible.</b>
+      </p>
+    </div>
+-->
+
+    <div class="card">
+      <div class="item item-dark" ng-click="showAbout=!showAbout">
+        About CubingZA
+      </div>
+      
+      <div ng-show="!showAbout">
+        <div class="cube-image-wrapper">
+          <img class="cube-image" ng-src="main/assets/images/cubepic.png">
+        </div>
+
+        <div class="padding">
+          <p>
+            Cubing South Africa (<b>CubingZA</b>) exists to promote and encourage 
+            speedcubing in South Africa, and to assist organisers with hosting 
+            World Cube Association sanctioned competitions.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    
+
+    <div class="card">
+      <div class="item item-dark" ng-click="showCompetitions=!showCompetitions">
+        Competitions
+      </div>
+      
+      <div class="padding"  ng-show="!showCompetitions">
+        <p>
+          Competitions are organised from time to time by independent organsisers.          
+        </p>
+        
+        <a class="button button-block button-outline button-dark icon-left ion-trophy"
+                href="#!/main/events">View upcoming competitions</a>
+        
+      </div>
+    </div>
+    
+  </ion-content>
+</ion-view>

@@ -1,0 +1,44 @@
+<ion-view view-title="Details">
+  <!-- do you want padding -->
+  <ion-content class="padding">
+    
+    <br/>
+    
+    
+    <ion-list>
+      <ion-item class="item item-dark item-divider item-icon-left">
+        <div class="comp-block-title">{{ctrl.comp.name}}</div>
+      </ion-item>
+      <ion-item class="item item-icon-left item-text-wrap">
+        <i class="icon ion-location"></i>
+        <div>{{ctrl.comp.venue}}</div>
+        <br/>
+        <p>{{ctrl.comp.address | trimAddress}}</p>
+      </ion-item>
+      <ion-item class="item item-icon-left">
+        <i class="icon ion-map"></i>
+        <div>{{ctrl.comp.city}}, <strong>{{ctrl.comp.province}}</strong></div>
+      </ion-item>
+      <ion-item class="item item-icon-left">
+        <i class="icon ion-calendar"></i>
+        <div>
+          {{ctrl.comp.startDate | date : 'EEE, d MMM yyyy'}}
+          <div ng-show="ctrl.comp.endDate > ctrl.comp.startDate"> 
+            <div class="comp-date-to">to</div> 
+            {{ctrl.comp.endDate | date : 'EEE, d MMM yyyy'}}
+          </div>
+        </div>
+      </ion-item>
+      <ion-item class="item item-icon">
+        <button class="button button-block button-outline button-positive icon-right ion-arrow-right-a"
+                ng-click="ctrl.goToRegistration()">
+          Registration Page
+        </button>
+        <a class="button button-block button-outline button-dark icon-left ion-arrow-left-a"
+                href="#!/main/events">
+          Back to Competitions
+        </a>
+      </ion-item>        
+    </ion-list>
+  </ion-content>
+</ion-view>

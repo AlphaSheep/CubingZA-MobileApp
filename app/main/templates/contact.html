@@ -1,0 +1,60 @@
+<ion-view view-title="Contact">
+  <!-- do you want padding? -->
+  <ion-content class="padding">
+
+    <!-- content goes here -->
+    <ion-list>
+      <ion-item class="item item-dark">
+        Contact Us
+      </ion-item>
+      <form name="form" novalidate>
+        <ion-item>
+          <label class="item item-input" 
+                 ng-class="{'has-error':form.name.$dirty && form.name.$invalid, 'no-error':form.name.$dirty && form.name.$valid}">
+            <i class="icon ion-person placeholder-icon"></i>
+            <input type="text" name="name" ng-model="ctrl.name" placeholder="Name" required>
+          </label>
+          <div class="form-feedback assertive" ng-show="form.name.$dirty && form.name.$invalid">A name is required</div>
+        </ion-item>
+        <ion-item>
+          <label class="item item-input"
+                 ng-class="{'has-error':form.email.$dirty && form.email.$invalid, 'no-error':form.email.$dirty && form.email.$valid}">
+            <i class="icon ion-at placeholder-icon"></i>
+            <input type="email" name="email" ng-model="ctrl.email" placeholder="Email Address" required>
+          </label>
+          <div class="form-feedback assertive" ng-show="form.email.$dirty && form.email.$invalid &&!form.email.$error.required">Enter a valid email address</div>
+          <div class="form-feedback assertive" ng-show="form.email.$dirty && form.email.$error.required">An email address is required</div>
+        </ion-item>
+        <ion-item>
+          <label class="item item-input" 
+                 ng-class="{'has-error':form.subject.$dirty && form.subject.$invalid, 'no-error':form.subject.$dirty && form.subject.$valid}">
+            <i class="icon ion-compose placeholder-icon"></i>
+            <input type="text" name="subject" ng-model="ctrl.subject" placeholder="Subject" required>
+          </label>
+          <div class="form-feedback assertive" ng-show="form.subject.$dirty && form.subject.$invalid">A subject is required</div>
+        </ion-item>
+        <ion-item>
+          <label class="item item-input">
+            <textarea placeholder="Message" name="message" ng-model="ctrl.message" rows="8" ></textarea>
+          </label>
+        </ion-item>
+
+        <ion-item>
+          <button class="button button-block button-outline button-positive icon ion-paper-airplane"
+                  ng-disabled="form.$invalid"
+                  ng-click="ctrl.contactSend(form)">
+            Send
+          </button>
+          <div class="form-feedback assertive" ng-show="ctrl.error">{{ctrl.errorMessage}}</div>
+
+        </ion-item>
+      </form>
+      
+    </ion-list>
+    
+    <div class="list">
+      
+    </div>
+
+  </ion-content>
+</ion-view>

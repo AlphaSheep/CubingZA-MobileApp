@@ -1,0 +1,98 @@
+/*
+To customize the look and feel of Ionic, you can override the variables
+in ionic's _variables.scss file.
+
+For example, you might change some of the default colors:
+*/
+
+$light:                           #fff !default;
+$stable:                          #f8f8f8 !default;
+$positive:                        #4a87ee !default;
+$calm:                            #43cee6 !default;
+$balanced:                        #66cc33 !default;
+$energized:                       #f0b840 !default;
+$assertive:                       #ef4e3a !default;
+$royal:                           #8a6de9 !default;
+$dark:                            #444 !default;
+
+// The path for our ionicons font files, relative to the built & temporary main.css
+$ionicons-font-path: "../assets/fonts" !default;
+
+// Include all of Ionic
+@import "../../bower_components/ionic/scss/ionic";
+
+
+
+.comp-block-title {
+  font-size: 133%;
+  font-weight: 400;
+  padding: 10px 0;
+}
+
+.comp-date-to {
+  padding: 0 10px;
+}
+
+
+.list .item.item-accordion {
+  line-height: 38px;
+  padding-top: 0;
+  padding-bottom: 0;
+  transition: 0.09s all linear;
+}
+
+.list .item.item-accordion.ng-hide {
+  line-height: 0px;
+}
+
+.list .item.item-accordion.ng-hide-add, 
+.list .item.item-accordion.ng-hide-remove {
+  display: block !important;
+}
+
+
+.record-single {
+  text-align: left;
+}
+
+.record-average {
+  text-align: right;
+}
+
+.icon-rotated-90 {
+  display: inline-block; 
+  -webkit-transform: rotate(90deg) scale(0.8);
+  transform: rotate(90deg) scale(0.8);
+}
+
+.cube-image-wrapper {
+  text-align: center;
+  padding: 10px 0;
+}
+
+.cube-image {  
+//  display: block;
+  max-width:50%;
+  max-height:128px;
+  width: auto;
+  height: auto;
+}
+
+.card p {
+  text-align: justify;
+}
+
+
+
+.has-error {
+  border-color: $assertive;
+}
+
+.no-error {
+  border-color: $balanced;
+}
+
+.form-feedback {
+  font-size: 80%;
+  padding: 3px 
+}

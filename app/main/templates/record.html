@@ -1,0 +1,73 @@
+<ion-view view-title="South African Records">
+  <!-- do you want padding? -->
+  <ion-content class="padding">
+
+    <!-- content goes here -->
+    <ion-list>
+      
+      <ion-item
+        ng-show="!ctrl.hasRecords"
+        class="item-text-wrap ">
+        <center><br/>
+          <div ng-show="ctrl.loading"><ion-spinner></ion-spinner></div>
+          <h1 ng-show="ctrl.hasError"><i class="icon ion-alert-circled assertive"></i></h1>
+          <br/><p>{{ctrl.status}}</p><br/>
+        </center>
+      </ion-item>
+      
+      <ion-item
+        ng-show="ctrl.hasRecords && ctrl.records.length==0"
+        class="item-text-wrap ">
+        <center><br/>
+          <h1><i class="icon ion-alert-circled assertive"></i></h1>
+          <br/><p><i>No records received from server</i></p><br/>
+        </center>
+      </ion-item>
+      
+      <div ng-repeat="record in ctrl.records">
+        
+        <ion-item class="item item-icon-right item-stable"
+                  ng-click="ctrl.toggleGroup(record)"
+                  ng-class="{active: ctrl.isGroupShown(record), 'item-dark': ctrl.isGroupShown(record)}">
+          <i class="icon cubing-icon event-{{record.eventId}}"></i>
+          {{record.eventName}}
+        </ion-item>
+
+        
+        <ion-item class="item item-accordion item-light item-icon-left item-icon-right"
+                  ng-show="ctrl.isGroupShown(record)">
+          <i class="icon ion-minus icon-rotated-90 positive"></i>
+          <div class="row">
+            <div class="col col-75">{{record.singleName}}</div>
+            <div class="col col-25 record-average positive">{{record.singleResult}}</div>
+          </div>
+          <i class="icon ion-android-stopwatch positive"></i>
+        </ion-item>
+        <ion-item class="item item-accordion item-light item-icon-left item-icon-right"
+                  ng-show="record.averageResult && ctrl.isGroupShown(record)">
+          <i class="icon ion-stats-bars positive"></i>
+          <div class="row">
+            <div class="col col-75">{{record.averageName}}</div>
+            <div class="col col-25 record-average positive">{{record.averageResult}}</div>
+          </div>
+          <i class="icon ion-android-stopwatch positive"></i>
+        </ion-item>
+        <ion-item class="item item-accordion item-dark active"
+                  ng-show="ctrl.isGroupShown(record)">
+        </ion-item>
+        
+      </div> 
+                
+    </ion-list>      
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+  </ion-content>
+</ion-view>

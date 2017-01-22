@@ -1,0 +1,54 @@
+<ion-view view-title="Upcoming Competitions">
+  <ion-content>
+
+    <!-- content goes here -->
+    <ion-list>
+      
+      <ion-item
+        ng-show="!ctrl.hasComps"
+        class="item-text-wrap ">
+        <center><br/>
+          <div ng-show="ctrl.loading"><ion-spinner></ion-spinner></div>
+          <h1 ng-show="ctrl.hasError"><i class="icon ion-alert-circled assertive"></i></h1>
+          <br/><p>{{ctrl.status}}</p><br/>
+        </center>
+      </ion-item>
+      
+      <ion-item
+        ng-show="ctrl.hasComps && ctrl.comps.length==0"
+        class="item-text-wrap ">
+        <center><br/>
+          <h1><i class="icon ion-sad-outline calm"></i></h1>
+          <br/><p><i>No upcoming competitions at the moment</i></p><br/>
+        </center>
+      </ion-item>
+      
+      <ion-item
+        class="item-remove-animate item-icon-left item-icon-right"
+        type="item-text-wrap"
+        ng-repeat="comp in ctrl.comps"
+        on-swipe-left="viewCompDetails({compId: comp.registrationName})"
+        ui-sref="main.competitionDetail({compId: comp.registrationName})">
+        <i class="icon ion-trophy positive"></i>
+        <h2>{{comp.name}}</h2>
+<!--        <div class="text-muted">{{comp.venue}}</div>-->
+        <p>{{comp.city}}, {{comp.province}}</p>
+        <p>
+          {{comp.startDate | date : 'EEE, d MMM yyyy'}}
+          <span ng-show="comp.endDate > comp.startDate"> - {{comp.endDate | date : 'EEE, d MMM yyyy'}}</span>
+        </p>
+        <i class="icon ion-chevron-right icon-accessory"></i>
+      </ion-item>
+      
+      <ion-item>
+        <button class="button button-block button-outline button-positive icon ion-refresh"
+                ng-show="!ctrl.loading"
+                ng-click="ctrl.refreshCompsList()">
+          Refresh List
+        </button>
+      </ion-item>
+      
+    </ion-list>
+
+  </ion-content>
+</ion-view>
